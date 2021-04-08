@@ -1,3 +1,3 @@
 # SoftwareTestingProject2
 
-This is the project 2
+Refactoring & Object Oriented Design
