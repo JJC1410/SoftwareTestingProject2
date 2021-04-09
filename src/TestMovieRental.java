@@ -32,19 +32,19 @@ public class TestMovieRental extends TestCase
 			     customer.statement());
 	}
     
-//    public void testHtmlCustomer() 
-//    {
-//		customer.addRental(rentMatrix);
-//		customer.addRental(rentMatrix2);
-//		assertEquals("<html><head><title>Rentals: John Hood</title></head><body>\n"+
-//			     "<h1>Rentals: John Hood</h1>\n"+
-//			     "<table border=1><tr><th>Days</th><th>Title</th><th>Charge</th></tr>\n"+
-//			     "<tr><td align=right>4</td><td>Matrix<td align=right>$5.0</td></tr>\n"+
-//			     "<tr><td align=right>5</td><td>Matrix2<td align=right>$15.0</td></tr>\n"+
-//			     "<tr><td></td><td><i>total</i><td align=right>$20.0</td></tr>\n"+
-//			     "</table><p>Frequent renter points = 3</p>\n"+
-//			     "</body></html>\n",
-//			     customer.htmlStatement());
-//    }
+    public void testHtmlCustomer() 
+    {
+		customer.addRental(rentMatrix);
+		customer.addRental(rentMatrix2);
+		assertEquals("<html><head><title>Rentals: John Hood</title></head><body>\n"+
+			     "<h1>Rentals: John Hood</h1>\n"+
+			     "<table border=1><tr><th>Days</th><th>Title</th><th>Charge</th></tr>\n"+
+			     "<tr><td align=right>4</td><td>Matrix<td align=right>$5.0</td></tr>\n"+
+			     "<tr><td align=right>5</td><td>Matrix2<td align=right>$15.0</td></tr>\n"+
+			     "<tr><td></td><td><i>total</i><td align=right>$20.0</td></tr>\n"+
+			     "</table><p>Frequent renter points = 3</p>\n"+
+			     "</body></html>\n",
+			     customer.htmlStatement());
+    }
 
 }
