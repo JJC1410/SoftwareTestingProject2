@@ -19,6 +19,7 @@ public class Customer
     {
     	rentals.add(arg);
     }
+   
     
     public String statement() 
     {
@@ -35,14 +36,15 @@ public class Customer
     	    charge = rental.charge();
 
     	    // add frequent renter points
-    	    frequentRenterPoints ++;
-    	    // add bonus for a two day new release rental
-    	    if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
-    		rental.getDaysRented() > 1) 
-    	    {
-    	   		frequentRenterPoints ++;
-    	   	}
+//    	    frequentRenterPoints ++;
+//    	    // add bonus for a two day new release rental
+//    	    if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
+//    		rental.getDaysRented() > 1) 
+//    	    {
+//    	   		frequentRenterPoints ++;
+//    	   	}
 
+    	    frequentRenterPoints = rental.frequentRenterPoints(frequentRenterPoints);
     	    //show figures for this rental
     	    result += rental.getDaysRented() +
     		" days of '" + rental.getMovie().getTitle() +
