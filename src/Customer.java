@@ -47,6 +47,12 @@ public class Customer
     	}
 
     	return result + report.footerLine(totalAmount, frequentRenterPoints);
-    }    
+    }
+
+//	public String htmlStatement() 
+//	{
+//		// TODO Auto-generated method stub
+//		return statement(new HtmlReport());
+//	}   
 }
 
