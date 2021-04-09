@@ -3,7 +3,7 @@ import java.util.*;
 public class Customer
 {
     private String name;
-	private List rentals = new ArrayList();
+	private List<Rental> rentals = new ArrayList<Rental>();
 
     public Customer(String name) 
     {
@@ -20,38 +20,6 @@ public class Customer
     	rentals.add(arg);
     }
     
-    private double chargeForRental(Rental rental)
-    {
-		double charge = 0;
-	    //determine amounts a particular rental
-		
-	    switch (rental.getMovie().getPriceCode()) 
-	    {
-	    	case Movie.REGULAR:
-	    	charge += 2;
-	    	if (rental.getDaysRented() > 2)
-	    	{
-	    		charge += (rental.getDaysRented() - 2) * 1.5;
-
-	    	}
-	    	break;
-	    	
-	    	case Movie.NEW_RELEASE:
-	    	charge += rental.getDaysRented() * 3;
-	    	break;
-	    	
-	    	case Movie.CHILDRENS:
-		
-	    	charge += 1.5;
-	    	if (rental.getDaysRented() > 3)
-	    	{
-	    		charge += (rental.getDaysRented() - 3) * 1.5;
-	    	}
-	    	break;
-	    }
-		return charge;
-    }
-    
     public String statement() 
     {
     	double totalAmount = 0;
@@ -61,25 +29,25 @@ public class Customer
     
     	while (rentalIterator.hasNext()) 
     	{
-    	    double thisAmount = 0;
-    	    Rental each = (Rental) rentalIterator.next();
+    	    double charge = 0;
+    	    Rental rental = (Rental) rentalIterator.next();
 
-    	    thisAmount = chargeForRental(each);
+    	    charge = rental.charge();
 
     	    // add frequent renter points
     	    frequentRenterPoints ++;
     	    // add bonus for a two day new release rental
-    	    if ((each.getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
-    		each.getDaysRented() > 1) 
+    	    if ((rental.getMovie().getPriceCode() == Movie.NEW_RELEASE) &&
+    		rental.getDaysRented() > 1) 
     	    {
     	   		frequentRenterPoints ++;
     	   	}
 
     	    //show figures for this rental
-    	    result += each.getDaysRented() +
-    		" days of '" + each.getMovie().getTitle() +
-    		"' $" + String.valueOf(thisAmount) + "\n";
-    	    totalAmount += thisAmount;
+    	    result += rental.getDaysRented() +
+    		" days of '" + rental.getMovie().getTitle() +
+    		"' $" + String.valueOf(charge) + "\n";
+    	    totalAmount += charge;
     	}
     	//add footer lines
     	result += "Total = $" + totalAmount + "\n";
