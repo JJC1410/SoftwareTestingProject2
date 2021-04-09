@@ -20,12 +20,17 @@ public class Customer
     	rentals.add(arg);
     }
     
-    public String statement() 
+    public String statement()
+    {
+    	return statement(new TextReport());
+    }
+    
+    public String statement(TextReport report) 
     {
     	double totalAmount = 0;
     	int frequentRenterPoints = 0;
     	Iterator<Rental> rentalIterator = rentals.iterator();
-    	Report report = new Report();
+    	
     	String result = report.headerLine(getName());
     
     	for (Iterator<Rental> i = rentalIterator; i.hasNext();)

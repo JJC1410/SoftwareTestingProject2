@@ -27,7 +27,7 @@ public class Rental
     }
     
     // new method rentalLine()
-    public String rentalLine(Report report)
+    public String rentalLine(TextReport report)
     {
     	return report.rentalLine(this.daysRented, this.movie.getTitle(), this.charge());
     }
