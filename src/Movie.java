@@ -35,7 +35,7 @@ public class Movie
     	
     	switch (this.getPriceCode()) 
 	    {
-	    	case Movie.REGULAR:
+	    	case REGULAR:
 	    	charge += 2;
 	    	if (daysRented > 2)
 	    	{
@@ -44,11 +44,11 @@ public class Movie
 	    	}
 	    	break;
 	    	
-	    	case Movie.NEW_RELEASE:
+	    	case NEW_RELEASE:
 	    	charge += daysRented * 3;
 	    	break;
 	    	
-	    	case Movie.CHILDRENS:
+	    	case CHILDRENS:
 		
 	    	charge += 1.5;
 	    	if (daysRented > 3)
@@ -57,7 +57,19 @@ public class Movie
 	    	}
 	    	break;
 	    }
-    	
     	return charge;
+    }
+    
+    public boolean isNewRelease()
+    {
+    	if (this.getPriceCode() == NEW_RELEASE)
+    	{
+    		return true;
+    	}
+    	else
+    	{
+    		return false;
+    	}
+
     }
 }
