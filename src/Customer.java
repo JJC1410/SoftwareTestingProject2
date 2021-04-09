@@ -25,7 +25,8 @@ public class Customer
     	double totalAmount = 0;
     	int frequentRenterPoints = 0;
     	Iterator<Rental> rentalIterator = rentals.iterator();
-    	String result = "Rentals: " + getName() + "\n";
+    	Report report = new Report();
+    	String result = report.headerLine(getName());
     
     	for (Iterator<Rental> i = rentalIterator; i.hasNext();)
     	{
@@ -36,15 +37,11 @@ public class Customer
 
     	    frequentRenterPoints = rental.frequentRenterPoints(frequentRenterPoints);
     	    //show figures for this rental
-    	    result += rental.rentalLine();
+    	    result += rental.rentalLine(report);
     	    totalAmount += charge;
     	}
 
-    	//add footer lines
-    	result += "Total = $" + totalAmount + "\n";
-    	result += "Frequent renter points = " + frequentRenterPoints + "\n";
-    	return result + "---\n";
-    }
-    
+    	return result + report.footerLine(totalAmount, frequentRenterPoints);
+    }    
 }
 

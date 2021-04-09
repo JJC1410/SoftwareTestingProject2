@@ -10,16 +10,6 @@ public class Rental
 		this.daysRented = daysRented;
     }
 
-//    public int getDaysRented() 
-//    {
-//    	return daysRented;
-//    }
-//
-//    public Movie getMovie() 
-//    {
-//    	return movie;
-//    }
-
     public double charge()
     {
     	return movie.charge(daysRented);
@@ -37,11 +27,9 @@ public class Rental
     }
     
     // new method rentalLine()
-    public String rentalLine()
+    public String rentalLine(Report report)
     {
-    	return (this.daysRented + 
-    			" days of '" + this.movie.getTitle()+
-    			"' $" + String.valueOf(this.charge()) + "\n");
+    	return report.rentalLine(this.daysRented, this.movie.getTitle(), this.charge());
     }
 }
 
