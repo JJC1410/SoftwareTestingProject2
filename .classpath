@@ -6,8 +6,12 @@
 		</attributes>
 	</classpathentry>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<classpathentry kind="lib" path="C:/Users/Qianzheng/Downloads/junit-4.13.1.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Qianzheng/Downloads/hamcrest-core-1.3.jar"/>
+=======
+	<classpathentry kind="src" path="src"/>
+>>>>>>> parent of e501834 (Format change and add junit to class path)
 =======
 	<classpathentry kind="src" path="src"/>
 >>>>>>> parent of e501834 (Format change and add junit to class path)
