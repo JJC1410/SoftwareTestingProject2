@@ -19,27 +19,24 @@ public class Customer
     {
     	rentals.add(arg);
     }
-   
     
     public String statement() 
     {
     	double totalAmount = 0;
     	int frequentRenterPoints = 0;
-    	Iterator rentalIterator = rentals.iterator();
+    	Iterator<Rental> rentalIterator = rentals.iterator();
     	String result = "Rentals: " + getName() + "\n";
     
-    	for (int i = 0; i < rentals.size(); i++)
+    	for (Iterator<Rental> i = rentalIterator; i.hasNext();)
     	{
     	    double charge = 0;
-    	    Rental rental = (Rental) rentalIterator.next();
+    	    Rental rental = rentalIterator.next();
 
     	    charge = rental.charge();
 
     	    frequentRenterPoints = rental.frequentRenterPoints(frequentRenterPoints);
     	    //show figures for this rental
-    	    result += rental.getDaysRented() +
-    		" days of '" + rental.getMovie().getTitle() +
-    		"' $" + String.valueOf(charge) + "\n";
+    	    result += rental.rentalLine();
     	    totalAmount += charge;
     	}
 
@@ -47,8 +44,7 @@ public class Customer
     	result += "Total = $" + totalAmount + "\n";
     	result += "Frequent renter points = " + frequentRenterPoints + "\n";
     	return result + "---\n";
-        }
-
-
+    }
+    
 }
 

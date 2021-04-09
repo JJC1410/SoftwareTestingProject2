@@ -10,15 +10,15 @@ public class Rental
 		this.daysRented = daysRented;
     }
 
-    public int getDaysRented() 
-    {
-    	return daysRented;
-    }
-
-    public Movie getMovie() 
-    {
-    	return movie;
-    }
+//    public int getDaysRented() 
+//    {
+//    	return daysRented;
+//    }
+//
+//    public Movie getMovie() 
+//    {
+//    	return movie;
+//    }
 
     public double charge()
     {
@@ -29,11 +29,19 @@ public class Rental
     {	
 	    frequentRenterPoints ++;
 	    // add bonus for a two day new release rental
-	    if (this.movie.isNewRelease() && this.getDaysRented() > 1) 
+	    if (this.movie.isNewRelease() && this.daysRented > 1) 
 	    {
 	   		frequentRenterPoints ++;
 	   	}
 		return frequentRenterPoints;
+    }
+    
+    // new method rentalLine()
+    public String rentalLine()
+    {
+    	return (this.daysRented + 
+    			" days of '" + this.movie.getTitle()+
+    			"' $" + String.valueOf(this.charge()) + "\n");
     }
 }
 
