@@ -3,7 +3,7 @@ import java.util.*;
 public class Customer
 {
     private String name;
-    private List<Rental> rentals = new ArrayList<Rental>();
+	private List rentals = new ArrayList();
 
     public Customer(String name) 
     {
@@ -14,6 +14,7 @@ public class Customer
     {
     	return name;
     }
+
     public void addRental(Rental arg) 
     {
     	rentals.add(arg);
