@@ -22,7 +22,7 @@ public class Customer
     
     public String statement()
     {
-    	return statement(new TextReport());
+    	return statement(new Report());
     }
     
     public String statement(TextReport report) 
@@ -49,10 +49,10 @@ public class Customer
     	return result + report.footerLine(totalAmount, frequentRenterPoints);
     }
 
-//	public String htmlStatement() 
-//	{
-//		// TODO Auto-generated method stub
-//		return statement(new HtmlReport());
-//	}   
+	public String htmlStatement() 
+	{
+		// TODO Auto-generated method stub
+		return statement(new HtmlReport());
+	}   
 }
 
