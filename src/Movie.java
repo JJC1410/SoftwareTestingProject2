@@ -28,9 +28,4 @@ public class Movie
     {
     	return title;
     }
-    
-    public double charge(int days)
-    {
-    	return (getPriceCode() * days);
-    }
 }

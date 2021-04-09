@@ -20,9 +20,5 @@ public class Rental
     	return movie;
     }
     
-    public double charge()
-    {
-    	return movie.charge(daysRented);
-    }
 }
 
